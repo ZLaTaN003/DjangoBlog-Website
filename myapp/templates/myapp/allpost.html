@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+allpost
+{% endblock  %}
+
+
+
+{% block csspart %}
+<link rel = "stylesheet" href = "{% static 'myapp/post.css' %}"/>
+<link rel = "stylesheet" href = "{% static 'myapp/allpost.css' %}"/>
+
+{% endblock csspart %}
+
+
+
+{% block content %}
+
+
+
+   <div class="page-heading" style="text-align: center;">
+     <h1 class="ji">All My Posts</h1>
+ </div>
+ 
+{% for post in allpost %}
+<div class="post">
+     {% include "myapp/includes/post.html" %}
+ </div>
+
+ {% endfor %}
+              
+                         
+         
+
+
+         
+{% endblock  %}

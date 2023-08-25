@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{identifiedpost.title}}
+{% endblock  %}
+
+
+
+{% block csspart %}
+<link rel = "stylesheet" href = "{% static 'myapp/mypost.css' %}"/>
+
+{% endblock csspart %}
+
+
+
+{% block content %}
+<section id="summary">
+    <h2>{{identifiedpost.title}}</h2>
+    <article>
+        <img src="{% static 'myapp/'|add:identifiedpost.img %}" alt=POST TITLE/>
+         <address>{{identifiedpost.author}}</address>
+         <div>
+            {{identifiedpost.date}}
+         </div>
+         </article>
+        </section>
+
+
+
+        <main>
+            {{identifiedpost.content}}
+        </main>
+
+{% endblock  %}

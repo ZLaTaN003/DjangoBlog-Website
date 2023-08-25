@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+{% block title %}
+MainPage
+{% endblock  %}
+
+{% block csspart %}
+<link rel = "stylesheet" href = "{% static 'myapp/index.css' %}"/>
+<link rel = "stylesheet" href = "{% static 'myapp/post.css' %}"/>
+
+{% endblock csspart %}
+
+
+
+{% block content %}
+<main>
+  
+    <h1 class="title">AKZ BLOGS </h1>
+  
+    <div class="px-4 py-5 my-5 text-center">
+      <img class="d-block mx-auto mb-4" src="{% static 'myapp/mypho1.jpg' %}" alt="Myphoto" width="76" height="97">
+      <h1 class="display-5 fw-bold text-body-emphasis">ECHOES OF MY THOUGHT</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Hey there,
+
+           I'm excited to have you here on my Blog. This is where I share all kinds of thoughts, from Programming and Tech to Philosophy and whatever else catches my interest. 
+          
+          So, welcome aboard, and let's dive into this world of ideas together.
+          
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                <a href="{% url 'allposts' %}" class="btn btn-success custom-primary btn-lg px-4 gap-3">ALLPOSTS</a>
+            </div>
+            
+        </div>
+        
+      </div>
+    </div>
+    <h1 id="titl">My Latest Thoughts</h1>
+
+    {% for post in latestpost  %}
+
+        {% include "myapp/includes/post.html" %} 
+        
+    {% endfor %} 
+  
+    <div class="b-example-divider"></div>
+  
+    <div class="px-4 pt-5 my-5 text-center border-bottom">
+      <h1 class="display-4 fw-bold text-body-emphasis">ABOUT ME</h1>
+      <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">My name is AdithyaKrishna. I am an amateur Full-stack developer, 
+          I love creating Full-stack websites. My primary programming language is Python, 
+          and I am continuously exploring new fields in the area of Web development.
+           My hobbies, other than programming, include Gaming, playing Chess, and listening to Songs. You can contact me using the below method. </p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5">
+          
+          
+          <a href="mailto:adithyakrishnanszz@gmail.com" class="btn btn-primary btn-lg px-4 me-sm-3">Contact Me</a>
+
+
+        
+         
+        </div>
+      </div>
+      <div class="overflow-hidden" style="max-height: 30vh;">
+        <div class="container px-5">
+          <img src="{% static 'myapp/contact.png' %}" class="img-fluid border rounded-3 shadow-lg mb-4 bg-transparent" alt="Example image" width="100" height="100" loading="lazy">
+
+        </div>
+      </div>
+    </div>
+  
+
+{% endblock  %}
